@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Generate sample test for current problem from statement
+
+problem=${PWD:(-1):1};
+generate_tests ../statements/$problem.txt;

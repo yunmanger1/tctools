@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Test the problem with all tests in current folder
+
+for i in ??; do {
+	tt$1 $i;
+	read;
+}
+done;

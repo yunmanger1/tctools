@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Generate solution prototype for current problem from statement
+toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
+
+problem=${PWD:(-1):1};
+language=${1:-cpp};
+
+is_solution_exists $language ../statements/$problem.txt;
+if [ $? != 0 ]; then
+	echo ERROR: prototype has already been generated or some error occured while generating;
+	exit;
+fi;
+
+echo Generating solution prototype for problem $problem \($language\);
+
+if [ $language == "cpp" ]; then
+	generate_prototype $language ../statements/$problem.txt $toolsdir/templates/tc_class_template.h $toolsdir/templates/tc_executer_template.cpp;
+	cp $toolsdir/includes/*.h ./;
+else
+	generate_prototype $language ../statements/$problem.txt $toolsdir/templates/tc_class_template.java $toolsdir/templates/tc_executer_template.java;
+fi;

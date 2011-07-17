@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Prepare environment for contest
+
+toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
+
+. $toolsdir/init
+
+pwd=$toolsdir/..
+
+cd $pwd
+mkdir $1
+cd $1
+mkdir a
+mkdir b
+mkdir c
+mkdir statements
+cd statements
+touch a.txt b.txt c.txt
+cd ..
+#mc

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find . | grep -v 'Executer' | grep -v 'tc_sample.h' | grep -E 'java|h$'

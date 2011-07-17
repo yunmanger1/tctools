@@ -1,0 +1,6 @@
+#!/bin/bash
+
+toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
+PATH=$toolsdir:$PATH
+
+export PATH

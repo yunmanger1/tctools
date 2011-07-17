@@ -1,0 +1,33 @@
+TopCoder contests utilities from arti
+
+All commands have prefix "t" which means TopCoder :)
+
+Command     Full name           Description
+tsc         Start Contest       Prepares evironment for SRM: creates folder's structure, sets "path" variable, starts Far or MC
+tc          Compile             Compiles given file using Microsoft C/C++ Compiler with /W4 /EHsc
+tcl         Compile with cl     Compiles current problem using Microsoft C/C++ Compiler with /W4 /EHsc /O2 
+tgcc        Compile with g++    Compiles current problem using GNU C++ Compiler with -Wall -W -O2 -s -pipe (like on TopCoder server)
+tgp         Generate prototype  Generates solution prototype for current problem using information given in statement
+tgt         Generate test       Generates one sample test from statement for current problem
+tgta        Generate tests all  Generates all sample tests from statement for current problem
+tt          Test                Tests current problem on given test
+ttt         Test                Tests current problem on given test with "run"
+tta         Test all            Tests current problem on all test (use "t" option for testing with "run")
+tclear      Clear               Clears given file from unused "defines" and comments (creates "$1.clear")
+
+Changelog
+---------
+
+### Version 1.1
+1. Replaced ../../utils by toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" ) in
+`tsc`, `tgp`,  
+2. Rewrote `tcp` in python for using in gtk (ubuntu)
+3. We are not using `mc`
+4. `tsc` now must be executed like this `. ./$tctools/tsc`, to include PATH in current 
+environment.
+5. `tcc` clears file, and copies result to clipboard using `tcp`
+6. TCReader.java, java template, TCJavaPrototypeGenerator.h
+7. `tre` - RunEditor, finds *h, or *.java and opens with editor.
+8. `init` - set PATH. useful if shell was closed.
+
+by germanilyin@gmail.com

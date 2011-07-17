@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Compile current problem with GNU C++ Compiler 
+
+problem=${PWD:(-1):1}
+
+echo Compiling problem $problem with GNU C++ Compiler
+g++ -Wall -g *.cpp -o $problem

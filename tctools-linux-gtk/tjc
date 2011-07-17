@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Compile current problem with GNU C++ Compiler 
+toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
+problem=${PWD:(-1):1}
+
+echo Compiling problem $problem with Java Compiler
+echo "javac -sourcepath $toolsdir/source *Executer.java"
+javac -sourcepath $toolsdir/source -d . *Executer.java

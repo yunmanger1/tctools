@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Test current problem with given test in current folder
+
+problem=${PWD:(-1):1};
+
+echo $problem
+
+tput clear;
+
+echo Test $1;
+$problem < $1;
+
+cat $1;
