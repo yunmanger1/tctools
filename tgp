@@ -6,6 +6,11 @@ toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
 problem=${PWD:(-1):1};
 language=${1:-cpp};
 
+cnt=$(cat ../statements/$problem.txt | wc -l)
+if [ $cnt == 0 ]; then
+	xsel -o > ../statements/$problem.txt
+fi;
+
 is_solution_exists $language ../statements/$problem.txt;
 if [ $? != 0 ]; then
 	echo ERROR: prototype has already been generated or some error occured while generating;
