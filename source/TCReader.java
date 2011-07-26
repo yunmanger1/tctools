@@ -18,7 +18,18 @@ public class TCReader {
 	    String [] sr = s.split(",");
 	    int [] result = new int[sr.length];
 	    for (int i = 0; i < sr.length; i++){
-	        result[i] = Integer.parseInt(sr[i]);
+	        result[i] = Integer.parseInt(sr[i].trim());
+	    }
+	    return result;
+	}
+
+	public static double[] readdoubleArray(){
+	    String s = readline().trim();
+	    s = s.substring(1,s.length()-1);
+	    String [] sr = s.split(",");
+	    double [] result = new double[sr.length];
+	    for (int i = 0; i < sr.length; i++){
+	        result[i] = Double.parseDouble(sr[i]);
 	    }
 	    return result;
 	}

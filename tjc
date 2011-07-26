@@ -7,3 +7,7 @@ problem=${PWD:(-1):1}
 echo Compiling problem $problem with Java Compiler
 echo "javac -sourcepath $toolsdir/source *Executer.java"
 javac -sourcepath $toolsdir/source:. -d . *Executer.java
+
+#echo "#!/bin/sh
+#java *Executer" > $problem
+#chmod a+x $problem

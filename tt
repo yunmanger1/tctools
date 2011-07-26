@@ -9,6 +9,6 @@ echo $problem
 tput clear;
 
 echo Test $1;
-$problem < $1;
+./$problem < $1;
 
 cat $1;
