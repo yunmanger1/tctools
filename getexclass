@@ -1,0 +1,3 @@
+#!/bin/bash
+
+find . | grep 'Executer' | grep -v 'tc_sample.h' | grep -E 'java|h$' | sed -e s/.java$// | sed -e s/^.\\///

@@ -2,8 +2,6 @@
 
 # Prepare environment for contest
 
-toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
-
 . $toolsdir/init
 
 pwd=$toolsdir/..
@@ -17,5 +15,4 @@ mkdir c
 mkdir statements
 cd statements
 touch a.txt b.txt c.txt
-cd ..
 #mc
