@@ -3,6 +3,7 @@
 # Compile current problem with GNU C++ Compiler 
 problem=${PWD:(-1):1}
 
+rm *.class
 echo Compiling problem $problem with Java Compiler
 echo "javac -sourcepath $toolsdir/source *Executer.java"
 javac -sourcepath $toolsdir/source:. -d . *Executer.java

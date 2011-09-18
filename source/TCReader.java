@@ -7,7 +7,12 @@ public class TCReader {
 	static boolean eof = false;
 
 	static {
-	    in = new Scanner(System.in);
+	    try{
+		in = new Scanner(System.in);
+		bin = new BufferedReader(new InputStreamReader(System.in));
+	    }catch(Exception e){
+		e.printStackTrace();
+	    }
 	};
 	
 	public static String readline(){
@@ -23,36 +28,34 @@ public class TCReader {
 		    r = 0;
 		}
 	    }catch(Exception e){
+		e.printStackTrace();
+		eof = true;
 	    }
+	    //System.out.println((char)r);
 	    return (char)r;
 	}
 	
-	public static String readString(){
+	public static String readStringBetween(char a, char b){
 	    char c = readChar();
-	    while (!eof && c != '\"'){
+	    while (!eof && c != a){
 		c = readChar();
 	    }
 	    c = readChar();
-	    String r = "";
-	    while(!eof && c != '\"'){
-		r = r + c;
+	    StringBuffer r = new StringBuffer();
+	    while(!eof && c != b){
+		r.append(c);
 		c = readChar();
 	    }
-	    return r;
+	    //System.out.println(r.toString());
+	    return r.toString();
+	}
+	
+	public static String readString(){
+	    return readStringBetween('"','"');
 	}
 	
 	public static String readArray(){
-	    char c = readChar();
-	    while (!eof && c != '{'){
-		c = readChar();
-	    }
-	    c = readChar();
-	    String r = "";
-	    while (!eof && c != '}'){
-		r = r + c;
-		c = readChar();
-	    }
-	    return r;
+	    return readStringBetween('{','}');
 	}
 	
 	public static int[] readintArray(){
@@ -87,7 +90,7 @@ public class TCReader {
 	    int l = s.indexOf("\"");
 	    int r = s.lastIndexOf("\"");
         return s.substring(l,r);
-	}
+	}                                    
 	
 
 	public static String[] readStringArray(){
