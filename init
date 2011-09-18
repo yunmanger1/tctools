@@ -1,6 +1,7 @@
 #!/bin/bash
 
-toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
+toolsdir=/home/german/work/topcoder/tctools
 PATH=$toolsdir:$PATH
 
+export toolsdir
 export PATH

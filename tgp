@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Generate solution prototype for current problem from statement
-toolsdir=$( readlink -f "$( dirname "$BASH_SOURCE" )" )
 
 problem=${PWD:(-1):1};
 language=${1:-cpp};
