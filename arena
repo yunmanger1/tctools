@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd $toolsdir
+java -cp  jars/6.5.0.10/ContestApplet.jar com.topcoder.client.contestApplet.runner.generic www.topcoder.com 5001 http://tunnel1.topcoder.com/tunnel?dummy 

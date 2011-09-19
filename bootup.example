@@ -2,6 +2,8 @@
 
 toolsdir=/home/german/work/topcoder/tctools
 PATH=$toolsdir:$PATH
+editor=scribes
 
+export editor
 export toolsdir
 export PATH

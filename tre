@@ -1,6 +1,5 @@
 #!/bin/bash
 
-editor=scribes
 if [ $1 ]
 then
 	$editor $1
