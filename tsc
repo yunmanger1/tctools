@@ -2,8 +2,6 @@
 
 # Prepare environment for contest
 
-. $toolsdir/init
-
 pwd=$toolsdir/..
 
 cd $pwd
