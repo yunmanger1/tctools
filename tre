@@ -2,7 +2,7 @@
 
 if [ $1 ]
 then
-	$editor $1
+	$editor $1 &
 else
-	$editor `getsource`
+	$editor `getsource` &
 fi
