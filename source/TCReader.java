@@ -2,13 +2,12 @@ import java.util.*;
 import java.io.*;
 
 public class TCReader {
-	static Scanner in;
 	static BufferedReader bin;
 	static boolean eof = false;
-
+	static char c = '\n';
+	
 	static {
 	    try{
-		in = new Scanner(System.in);
 		bin = new BufferedReader(new InputStreamReader(System.in));
 	    }catch(Exception e){
 		e.printStackTrace();
@@ -16,7 +15,12 @@ public class TCReader {
 	};
 	
 	public static String readline(){
-        return in.nextLine();
+	    try{
+		return bin.readLine();
+	    }catch(IOException e){
+		eof = true;
+	    }
+	    return "";
 	}
 	
 	public static char readChar(){
@@ -32,7 +36,8 @@ public class TCReader {
 		eof = true;
 	    }
 	    //System.out.println((char)r);
-	    return (char)r;
+	    c = (char)r;
+	    return c;
 	}
 	
 	public static String readStringBetween(char a, char b){
@@ -48,6 +53,22 @@ public class TCReader {
 	    }
 	    //System.out.println(r.toString());
 	    return r.toString();
+	}
+	
+	public static boolean isIn(char c, String allowed){
+	    return allowed.indexOf(c) != -1;
+	}
+	
+	public static String readIn(String allowed){
+	    while (!eof && !isIn(c, allowed)){
+		readChar();
+	    }
+	    StringBuffer sb = new StringBuffer();
+	    while(!eof && isIn(c, allowed)){
+		sb.append(c);
+		readChar();
+	    }
+	    return sb.toString();
 	}
 	
 	public static String readString(){
@@ -79,17 +100,32 @@ public class TCReader {
 	}
 	
 	public static int readint(){
-	    return in.nextInt();
+	    return Integer.parseInt(readIn("1234567890"));
+	}
+	
+	public static long readlong(){
+	    return Long.parseLong(readIn("1234567890"));
 	}
 
 	public static double readdouble(){
-	    return in.nextDouble();
+	    return Double.parseDouble(readIn("1234567890."));
 	}
 
 	public static String fetchString(String s){
 	    int l = s.indexOf("\"");
 	    int r = s.lastIndexOf("\"");
-        return s.substring(l,r);
+	    if (l == -1){
+		return s;
+	    }
+	    if (l == r){
+		int n = s.length();
+		if (l > n/2){
+		    l = -1;
+		}else{
+		    r = n;
+		}
+	    }
+	    return s.substring(l+1,r);
 	}                                    
 	
 

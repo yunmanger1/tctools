@@ -5,7 +5,8 @@ public class $class_name$Executer {
 	public static void main(String[] args) throws IOException {
         $parameters_definition$
         $parameters_input$
-        
+		System.out.println("==================================================");        
 		System.out.println(new $class_name$().$method_name$($parameters_list$));
+		System.out.println("==================================================");        
 	}
 }
